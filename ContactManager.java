@@ -52,6 +52,13 @@ public class ContactManager {
         }
         
         System.out.println("\nContacts:");
+        contacts.sort((c1, c2) -> {
+            int lastCompare = c1.lastName.compareToIgnoreCase(c2.lastName);
+            if (lastCompare != 0) {
+                return lastCompare;
+            }
+            return c1.firstName.compareToIgnoreCase(c2.firstName);
+        });
         for (Contact contact : contacts) {
             System.out.println(contact);
         }
